@@ -1,0 +1,143 @@
+<import src="/common/copyright/copyright" />
+
+<view class="container">
+
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="../../images/user.jpg" background-size="cover"></image>
+      <button  style="font-size:32rpx;"   open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登陆 </button> 
+    </block>                                                           
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+    <!-- <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view wx:if="{{userInfo.nickName}}" class="nickname">
+      <text>{{userInfo.nickName}}</text>
+    </view> -->
+  </view>
+
+  <view class="zan-panel">
+    <view class="zan-cell zan-cell--access" bindtap="goOrder" id='1'>
+      <view class="zan-cell__bd">我的订单</view>
+      <view class="zan-cell__ft">查看全部订单</view>
+    </view>
+  </view>
+
+  <view class="zan-panel">
+    <view class="zan-cell">
+      <view class="zan-cell__bd order_icons">
+        <view class="icon" bindtap="goOrder" id='2'>
+          <i class="iconfont icon-daifukuan"></i>
+          <text>待付款</text>
+        </view>
+        <view class="icon" bindtap="goOrder" id='3'>
+          <i class="iconfont icon-daifahuo"></i>
+          <text>待发货</text>
+        </view>
+        <view class="icon" bindtap="goOrder" id='4'>
+          <i class="iconfont icon-dengdai"></i>
+          <text>待收货</text>
+        </view>
+        <view class="icon" bindtap="goOrder" id='5'>
+          <i class="iconfont icon-yiwancheng"></i>
+          <text>已完成</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="zan-panel">
+    <!-- 购物车详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goCart">
+      <view class="zan-cell__bd order_item">
+        <text>购物车</text>
+        <view class="my-badge" hidden="{{!cartGoodCount}}">{{cartGoodCount}}</view>
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+  </view>
+
+
+  <!-- 会员卡、分销等详情 -->
+  <view class="zan-panel" bindtap="goUserChange">
+    <!-- 我的会员卡详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goMember">
+      <view class="zan-cell__bd order_item">
+        <text>我的会员卡</text>
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的返现详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goReturn">
+      <view class="zan-cell__bd order_item">
+        <text>我的返现</text>
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的礼品卡详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goPresent">
+      <view class="zan-cell__bd order_item">
+        <text>我的礼品卡</text>
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的积分详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goIntegral">
+      <view class="zan-cell__bd order_item">
+        <text>我的积分</text>
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的优惠券详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goPreferential">
+      <view class="zan-cell__bd order_item">
+        <text>我的优惠券</text>        
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的优惠码详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goCode">
+      <view class="zan-cell__bd order_item">
+        <text>我的优惠码</text>        
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我的礼物详情 -->
+    <view class="zan-cell zan-cell--access" bindtap="goGift">
+      <view class="zan-cell__bd order_item">
+        <text>我的礼物</text>        
+      </view>
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 分销员中心 -->
+    <view class="zan-cell zan-cell--access" bindtap="goDistributor">
+      <view class="zan-cell__bd order_item">
+        <text>分销员中心</text>        
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+    <!-- 我购买的专栏、内容 -->
+    <view class="zan-cell zan-cell--access" bindtap="goColumn">
+      <view class="zan-cell__bd order_item">
+        <text>我购买的专栏、内容</text>        
+      </view>                                                     
+      <view class="zan-cell__ft"></view>
+    </view>
+
+
+
+  </view>
+  
+
+  <template is="copyright"/>
+
+</view>
